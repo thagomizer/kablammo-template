@@ -20,8 +20,8 @@
 on_turn do
 # If out of ammo
   if ammo < 1
-
-   # Run away and hide
+    rest
+    # Run away and hide
 
   else
     # Find closest apponent
