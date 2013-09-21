@@ -23,14 +23,15 @@
 on_turn do
   @ticks += 1
 
-  move_north! if @ticks % 2 == 0
-
 # If out of ammo
   # if ammo < 1
   #   rest
   #   # Run away and hide
 
   # else
+  find_enemy unless @enemy
+  attack(enemy)
+
   #   if @ticks % 5 == 0 or !@enemy
   #     find_enemy
   #   end
