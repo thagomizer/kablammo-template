@@ -31,9 +31,9 @@ on_turn do
   # else
   find_enemy unless @enemy
   if @enemy
-    attack(@enemy)
+    next attack(@enemy)
   else
-    move_north!
+    next move
   end
 
   #   if @ticks % 5 == 0 or !@enemy
