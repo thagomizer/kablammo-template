@@ -21,23 +21,25 @@
 @ticks = 0
 
 on_turn do
-  @ticks += 1
+move
+#   @ticks += 1
 
-# If out of ammo
-  if ammo < 1
-    rest
-    # Run away and hide
+# # If out of ammo
+#   if ammo < 1
+#     rest
+#     # Run away and hide
 
-  else
-    if @ticks % 5 == 0 or !@enemy
-      find_enemy
-    end
+#   else
+#     if @ticks % 5 == 0 or !@enemy
+#       find_enemy
+#     end
 
-    if @enemy
-      attack(@enemy)
-    else
-      move
-    end
+#     if @enemy
+#       attack(@enemy)
+#     else
+#       move
+#     end
+#   end
 end
 
 def move
