@@ -25,7 +25,7 @@ on_turn do
 
   else
     # Find closest apponent
-    enemy = opponents.reject { |o| can_see?(o) }.min{ |o| distance_to(o) }
+    enemy = opponents.reject { |o| !can_see?(o) }.min{ |o| distance_to(o) }
 
     if aiming_at?(enemy)
       fire!
