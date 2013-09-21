@@ -21,25 +21,26 @@
 @ticks = 0
 
 on_turn do
-move
-#   @ticks += 1
+  @ticks += 1
 
-# # If out of ammo
-#   if ammo < 1
-#     rest
-#     # Run away and hide
+  move_north! if @ticks % 2 == 0
 
-#   else
-#     if @ticks % 5 == 0 or !@enemy
-#       find_enemy
-#     end
+# If out of ammo
+  # if ammo < 1
+  #   rest
+  #   # Run away and hide
 
-#     if @enemy
-#       attack(@enemy)
-#     else
-#       move
-#     end
-#   end
+  # else
+  #   if @ticks % 5 == 0 or !@enemy
+  #     find_enemy
+  #   end
+
+  #   if @enemy
+  #     attack(@enemy)
+  #   else
+  #     move
+  #   end
+  # end
 end
 
 def move
