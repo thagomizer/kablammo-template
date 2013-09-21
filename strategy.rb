@@ -30,7 +30,11 @@ on_turn do
 
   # else
   find_enemy unless @enemy
-  attack(enemy)
+  if @enemy
+    attack(@enemy)
+  else
+    move
+  end
 
   #   if @ticks % 5 == 0 or !@enemy
   #     find_enemy
