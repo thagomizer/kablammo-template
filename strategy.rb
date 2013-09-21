@@ -33,7 +33,7 @@ on_turn do
   if @enemy
     attack(@enemy)
   else
-    move
+    move_north!
   end
 
   #   if @ticks % 5 == 0 or !@enemy
