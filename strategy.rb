@@ -17,20 +17,50 @@
 # move_east! -- move east
 # move_west! -- move west
 
+@enemy = nil
+@ticks = 0
+
 on_turn do
+  @ticks += 1
+
 # If out of ammo
   if ammo < 1
     rest
     # Run away and hide
 
   else
-    # Find closest apponent
-    enemy = opponents.reject { |o| !can_see?(o) }.min{ |o| distance_to(o) }
-
-    if aiming_at?(enemy)
-      fire!
-    else
-      aim_at!(enemy)
+    if @ticks % 5 == 0 or !@enemy
+      find_enemy
     end
+
+    if @enemy
+      attack(@enemy)
+    else
+      move
+    end
+end
+
+def move
+  case rand(4)
+  when 0
+    move_north!
+  when 1
+    move_south!
+  when 2
+    move_east!
+  when 3
+    move_west!
+  end
+end
+
+def find_enemy
+  @enemy = opponents.reject { |o| !can_see?(o) }.min{ |o| distance_to(o) }
+end
+
+def attack(enemy)
+  if aiming_at?(enemy)
+    fire!
+  else
+    aim_at!(enemy)
   end
 end
